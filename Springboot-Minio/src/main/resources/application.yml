@@ -1,0 +1,16 @@
+server:
+  port: 10086
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 20MB
+
+# Minio 配置
+minio:
+  url: "http://192.168.80.128:9000/"
+  accessKey: "java4ye"
+  secretKey: "java123456"
+
+

@@ -1,0 +1,101 @@
+<script src="//unpkg.com/vue/dist/vue.js"></script>
+<script src="//unpkg.com/element-ui@2.14.1/lib/index.js"></script>
+<script src="//unpkg.com/axios/dist/axios.min.js"></script>
+
+<div id="app">
+    <el-switch
+            style="margin-bottom: 1rem"
+            v-model="showUrl"
+            active-color="#13ce66"
+            active-text="回显URL"
+            inactive-text="">
+        >
+    </el-switch>
+
+    <el-upload
+            class="upload-demo"
+            ref="upload"
+            name="files"
+            action="/upload"
+            :multiple=true
+            :on-preview="handlePreview"
+            :on-remove="handleRemove"
+            :file-list="fileList"
+            :http-request="uploadImg"
+            :auto-upload="false">
+        <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
+        <el-button style="margin-left: 10px;" size="small" type="success" @click="submitUpload">上传到服务器</el-button>
+        <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+    </el-upload>
+    <div v-for="item in res" style="display: flex;
+    align-items: center;
+    margin: 20px 0;
+">
+        <div style="width: 80px;margin-right: 10px;text-align: right">
+            <a :href="item.url"> {{item.name}} </a>
+        </div>
+        <div style="width: 100px; height: 100px;">
+            <img :src='item.url'
+                 style="width: 100%;height: 100%;object-fit:cover;"/>
+        </div>
+    </div>
+</div>
+<script>
+    var Main = {
+        data() {
+            return {
+                fileList: [],
+                formData: new FormData(),
+                showUrl: false,
+                res: []
+            };
+        },
+        methods: {
+            uploadImg(f) {
+                console.log(f);
+                this.formData.append('files', f.file);//通过append向form对象添加数据
+            },
+            submitUpload() {
+                this.$refs.upload.submit();
+                let url = "/upload";
+                let changeRes=false
+                if (this.showUrl) {
+                    url = "/upload/urls";
+                    changeRes=true;
+                } else {
+                    url = "/upload";
+                    changeRes=false;
+                }
+                axios({
+                    method: 'post',
+                    url: url,
+                    data: this.formData
+                }).then(res => {
+                        this.formData = new FormData();
+                        console.log(res)
+                        if (changeRes){
+                            this.res = res.data.data
+                        }else{
+                            this.res=[]
+                        }
+                    }
+                )
+            },
+            handleRemove(file, fileList) {
+                console.log(file, fileList);
+            },
+            handlePreview(file) {
+                console.log(file);
+            }
+        }
+    }
+    var Ctor = Vue.extend(Main)
+    new Ctor().$mount('#app')
+</script>
+<style>
+    @import url("//unpkg.com/element-ui@2.14.1/lib/theme-chalk/index.css");
+
+    .el-upload-list__item-name [class^=el-icon] {
+        height: auto !important;
+    }
+</style>
