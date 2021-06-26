@@ -1,23 +1,33 @@
 spring:
-#  thymeleaf:
-#    cache: false
-#    prefix: classpath:/templates/
-#    suffix: .html
-#    encoding: UTF-8
-#    mode: HTML5
-#    servlet:
-#      content-type: text/html
-#  resources:
-#    static-locations: classpath:/
   datasource:
-    url: jdbc:mysql://192.168.80.128:3306/yang?useSSL=false&useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://192.168.175.128:3306/yang?useSSL=false&useUnicode=true&characterEncoding=utf-8
     username: ryzeyang
     password: yang1234
     driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      # 最小空闲连接数量
+      minimum-idle: 5
+      # 连接超时，默认 30 秒
+      connection-timeout: 1000
+      # 空闲连接存活最大时间，默认 10分钟
+      idle-timeout: 3
+      # 连接池最大连接数，默认是10
+      maximum-pool-size: 20
+      # 连接池名称
+      pool-name: 4yePool_HikariCP
+      # 自动提交事务，默认 true
+      auto-commit: true
+      # 连接最长的生命周期，默认 30 分钟
+#      max-lifetime:
+
+
+
+#  spring.datasource.hikari.connection-test-query=SELECT 1
+
   quartz:
     jdbc:
 #      这里有 三个选项 always（每次都帮你创建表） never(自己手动建表) embedded 默认的
-      initialize-schema: always
+      initialize-schema: embedded
     #持久化到数据库方式
     job-store-type: jdbc
     properties:
@@ -57,3 +67,4 @@ mybatis-plus:
     call-setters-on-nulls: true
     # 这个配置会将执行的sql打印出来，在开发或测试的时候可以用
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
