@@ -58,13 +58,13 @@
             submitUpload() {
                 this.$refs.upload.submit();
                 let url = "/upload";
-                let changeRes=false
+                let changeRes = false
                 if (this.showUrl) {
                     url = "/upload/urls";
-                    changeRes=true;
+                    changeRes = true;
                 } else {
                     url = "/upload";
-                    changeRes=false;
+                    changeRes = false;
                 }
                 axios({
                     method: 'post',
@@ -73,10 +73,10 @@
                 }).then(res => {
                         this.formData = new FormData();
                         console.log(res)
-                        if (changeRes){
+                        if (changeRes) {
                             this.res = res.data.data
-                        }else{
-                            this.res=[]
+                        } else {
+                            this.res = []
                         }
                     }
                 )

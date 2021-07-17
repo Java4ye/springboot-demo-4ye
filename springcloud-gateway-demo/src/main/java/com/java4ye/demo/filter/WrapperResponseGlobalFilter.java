@@ -52,10 +52,10 @@ public class WrapperResponseGlobalFilter implements GlobalFilter, Ordered {
 
             @Override
             public MultiValueMap<String, String> getQueryParams() {
-                MultiValueMap<String, String> multiValueMap=new LinkedMultiValueMap<>();
-                multiValueMap.add("a","1");
-                multiValueMap.add("b","2");
-                multiValueMap.add("c","3");
+                MultiValueMap<String, String> multiValueMap = new LinkedMultiValueMap<>();
+                multiValueMap.add("a", "1");
+                multiValueMap.add("b", "2");
+                multiValueMap.add("c", "3");
                 return multiValueMap;
             }
 

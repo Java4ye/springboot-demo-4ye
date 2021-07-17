@@ -22,22 +22,24 @@ import top.ryzeyang.demo.common.api.CommonResult;
 public class ExceptionHandlerLogAspect {
 
     @Pointcut("@annotation(org.springframework.web.bind.annotation.ExceptionHandler)")
-    private void pointcut(){}
+    private void pointcut() {
+    }
 
     /**
      * 唯一 ID， 方便在日志中直接定位到问题点
+     *
      * @param point
      * @return
      */
     @Around("pointcut()")
-    public CommonResult<String> around(ProceedingJoinPoint point){
+    public CommonResult<String> around(ProceedingJoinPoint point) {
         String uuid = UUID.randomUUID().toString();
-        log.error("Error uuid: {}" , uuid);
+        log.error("Error uuid: {}", uuid);
         try {
-            CommonResult proceed = (CommonResult<String>)point.proceed();
+            CommonResult proceed = (CommonResult<String>) point.proceed();
             String msg = proceed.getMsg();
-            proceed.setMsg(msg+" : "+uuid);
-            return  proceed;
+            proceed.setMsg(msg + " : " + uuid);
+            return proceed;
         } catch (Throwable throwable) {
             throwable.printStackTrace();
             return null;

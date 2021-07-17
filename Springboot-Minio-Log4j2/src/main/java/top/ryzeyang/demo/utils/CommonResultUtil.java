@@ -13,17 +13,19 @@ import top.ryzeyang.demo.common.api.ResultEnum;
  */
 public class CommonResultUtil {
 
-    public static <T> CommonResult<T> success(T data){
+    public static <T> CommonResult<T> success(T data) {
         return new CommonResult<>(ResultEnum.SUCCESS, data);
     }
 
-    public static <T> CommonResult<T> clientError(T data){
+    public static <T> CommonResult<T> clientError(T data) {
         return new CommonResult<>(ResultEnum.CLIENT_ERROR, data);
     }
-    public static <T> CommonResult<T> serverError(T data){
+
+    public static <T> CommonResult<T> serverError(T data) {
         return new CommonResult<>(ResultEnum.SERVER_ERROR, data);
     }
-    public static <T> CommonResult<T> thirdPartyError(T data){
+
+    public static <T> CommonResult<T> thirdPartyError(T data) {
         return new CommonResult<>(ResultEnum.THIRD_PARTY_ERROR, data);
     }
 }

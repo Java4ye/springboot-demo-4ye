@@ -18,9 +18,9 @@ import top.ryzeyang.demo.common.exceptions.AllMinioException;
 @Slf4j
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler({AllMinioException.class,Exception.class})
-    public CommonResult<String> handlerMinioException(Exception e){
-        log.error(e.getMessage(),e.getCause());
+    @ExceptionHandler({AllMinioException.class, Exception.class})
+    public CommonResult<String> handlerMinioException(Exception e) {
+        log.error(e.getMessage(), e.getCause());
         return CommonResultUtil.thirdPartyError("服务器异常，请联系工作人员");
     }
 

@@ -28,10 +28,10 @@ public class CommonResult<T> {
      */
     private T data;
 
-    public CommonResult(ResultEnum resultEnum,T data){
-        this.msg=resultEnum.getMessage();
-        this.code=resultEnum.getCode();
-        this.data=data;
+    public CommonResult(ResultEnum resultEnum, T data) {
+        this.msg = resultEnum.getMessage();
+        this.code = resultEnum.getCode();
+        this.data = data;
     }
 
 }

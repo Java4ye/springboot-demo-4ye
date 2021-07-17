@@ -18,15 +18,15 @@ spring:
       # 自动提交事务，默认 true
       auto-commit: true
       # 连接最长的生命周期，默认 30 分钟
-#      max-lifetime:
+  #      max-lifetime:
 
 
 
-#  spring.datasource.hikari.connection-test-query=SELECT 1
+  #  spring.datasource.hikari.connection-test-query=SELECT 1
 
   quartz:
     jdbc:
-#      这里有 三个选项 always（每次都帮你创建表） never(自己手动建表) embedded 默认的
+      #      这里有 三个选项 always（每次都帮你创建表） never(自己手动建表) embedded 默认的
       initialize-schema: embedded
     #持久化到数据库方式
     job-store-type: jdbc
@@ -52,8 +52,8 @@ spring:
             threadsInheritContextClassLoaderOfInitializingThread: true
 mybatis-plus:
   # xml扫描，多个目录用逗号或者分号分隔（告诉 Mapper 所对应的 XML 文件位置）
-#  MyBatis Mapper 所对应的 XML 文件位置，如果您在 Mapper 中有自定义方法(XML 中有自定义实现)，需要进行该配置，
-#  告诉 Mapper 所对应的 XML 文件位置
+  #  MyBatis Mapper 所对应的 XML 文件位置，如果您在 Mapper 中有自定义方法(XML 中有自定义实现)，需要进行该配置，
+  #  告诉 Mapper 所对应的 XML 文件位置
   mapper-locations: classpath:mapper/*.xml
   # 以下配置均有默认值,可以不设置
   global-config:

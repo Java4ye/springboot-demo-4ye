@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * <p>
- *  前端控制器
+ * 前端控制器
  * </p>
  *
  * @author Java4ye
@@ -23,7 +23,7 @@ public class UserController {
     IUserService iUserService;
 
     @GetMapping("/list")
-    public List<User> test(String message){
+    public List<User> test(String message) {
         List<User> list = iUserService.list();
         return list;
     }

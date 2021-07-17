@@ -8,9 +8,12 @@ package a;
  * @博客 https://blog.csdn.net/weixin_40251892
  */
 public class A {
-    private static final A a=new A();
-    private A(){}
-    public static A getA(){
+    private static final A a = new A();
+
+    private A() {
+    }
+
+    public static A getA() {
         return a;
     }
 }

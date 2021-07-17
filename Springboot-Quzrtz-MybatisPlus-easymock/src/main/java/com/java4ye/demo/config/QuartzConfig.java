@@ -16,20 +16,20 @@ import org.springframework.context.annotation.Configuration;
 public class QuartzConfig {
 
     @Bean
-    public JobDetail myJobDetail(){
+    public JobDetail myJobDetail() {
         return JobBuilder.newJob(GetMockUserJob.class)
-                .withIdentity("GetMockUserJob","GetMockUserJobGroup1")
-                .usingJobData("job_data_param","job_data_param1")
+                .withIdentity("GetMockUserJob", "GetMockUserJobGroup1")
+                .usingJobData("job_data_param", "job_data_param1")
                 .storeDurably()
                 .build();
     }
 
     @Bean
-    public Trigger myTrigger(){
+    public Trigger myTrigger() {
         return TriggerBuilder.newTrigger()
                 .forJob(myJobDetail())
-                .withIdentity("GET MOCK USER TRIGGER","TRIGGER GROUP1")
-                .usingJobData("job_trigger_param","job_trigger_param1")
+                .withIdentity("GET MOCK USER TRIGGER", "TRIGGER GROUP1")
+                .usingJobData("job_trigger_param", "job_trigger_param1")
                 .startNow()
                 .withSchedule(CronScheduleBuilder.cronSchedule("0/10 * * * * ?"))
                 .build();

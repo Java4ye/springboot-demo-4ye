@@ -43,35 +43,36 @@ import java.util.concurrent.TimeUnit;
 public class MinioController {
 
     @GetMapping("")
-    public String indexPage()  {
+    public String indexPage() {
         return "index";
     }
 
     /**
      * 上传成功后回显图片
+     *
      * @param files
      * @return
      * @throws AllMinioException
      */
     @ResponseBody
-    @PostMapping(value = "/upload",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public CommonResult<String> upload(@RequestParam MultipartFile[] files) throws  AllMinioException {
-        if (files.length==0){
+    @PostMapping(value = "/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public CommonResult<String> upload(@RequestParam MultipartFile[] files) throws AllMinioException {
+        if (files.length == 0) {
             return CommonResultUtil.clientError("上传文件数量为0");
         }
         for (MultipartFile file : files) {
-            uploadFile(file,false);
+            uploadFile(file, false);
         }
-        return CommonResultUtil.success(files.length+"");
+        return CommonResultUtil.success(files.length + "");
     }
 
     @ResponseBody
-    @PostMapping(value = "/upload/urls",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public CommonResult<Object> uploadAndShowUrl(@RequestParam MultipartFile[] files) throws  AllMinioException {
-        if (files.length==0){
+    @PostMapping(value = "/upload/urls", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public CommonResult<Object> uploadAndShowUrl(@RequestParam MultipartFile[] files) throws AllMinioException {
+        if (files.length == 0) {
             return CommonResultUtil.clientError("上传文件数量为0");
         }
-        List<FileDTO> list=new ArrayList<>();
+        List<FileDTO> list = new ArrayList<>();
         for (MultipartFile file : files) {
             FileDTO fileDTO = uploadFile(file, true);
             list.add(fileDTO);
@@ -83,7 +84,7 @@ public class MinioController {
     @GetMapping(value = "/url")
     public CommonResult<List<String>> getUrls() throws IOException, InvalidKeyException, InvalidResponseException, InsufficientDataException, NoSuchAlgorithmException, ServerException, InternalException, XmlParserException, InvalidBucketNameException, ErrorResponseException, InvalidExpiresRangeException {
         List<Bucket> buckets = MinioUtil.minioClient.listBuckets();
-        List<String> lists=new ArrayList<>();
+        List<String> lists = new ArrayList<>();
         for (Bucket bucket : buckets) {
             System.out.println(bucket.name());
             System.out.println("---------------");
@@ -108,19 +109,19 @@ public class MinioController {
     }
 
 
-    private FileDTO uploadFile(MultipartFile file, boolean showUrl) throws  AllMinioException {
+    private FileDTO uploadFile(MultipartFile file, boolean showUrl) throws AllMinioException {
         InputStream inputStream = null;
         try {
             inputStream = file.getInputStream();
         } catch (IOException e) {
-           throw new AllMinioException("Upload Failed",e.getCause());
+            throw new AllMinioException("Upload Failed", e.getCause());
         }
         String fileName = file.getOriginalFilename();
         String fileType = StrUtil.subAfter(fileName, ".", true);
         String contentType = file.getContentType();
         long size = file.getSize();
-        MinioUtil.putObject(fileType,fileName,inputStream,size,contentType);
-        if(showUrl){
+        MinioUtil.putObject(fileType, fileName, inputStream, size, contentType);
+        if (showUrl) {
             String temporaryUrl = MinioUtil.getTemporaryUrl(fileType, fileName);
             return FileDTO.builder().url(temporaryUrl).name(fileName).build();
         }

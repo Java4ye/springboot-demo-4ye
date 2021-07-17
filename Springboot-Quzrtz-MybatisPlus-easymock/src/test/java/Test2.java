@@ -56,17 +56,17 @@ public class Test2 {
         PreparedStatement preparedStatement = null;
         try {
             connection = DriverManager.getConnection(url, username, password);
-            preparedStatement= connection.prepareStatement("select * from User where name=?");
+            preparedStatement = connection.prepareStatement("select * from User where name=?");
             preparedStatement.setString(1, "Java4ye");
             preparedStatement.executeQuery();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } finally {
             try {
-                if (preparedStatement!=null){
+                if (preparedStatement != null) {
                     preparedStatement.close();
                 }
-                if (connection != null){
+                if (connection != null) {
                     connection.close();
                 }
             } catch (SQLException throwables) {

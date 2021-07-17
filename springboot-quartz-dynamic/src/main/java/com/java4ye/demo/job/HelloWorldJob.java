@@ -15,10 +15,10 @@ import org.springframework.scheduling.quartz.QuartzJobBean;
 @Slf4j
 public class HelloWorldJob extends QuartzJobBean {
     @Override
-    protected void executeInternal(JobExecutionContext jobExecutionContext){
+    protected void executeInternal(JobExecutionContext jobExecutionContext) {
         log.info("HelloWorld");
         JobKey key = jobExecutionContext.getJobDetail().getKey();
-        log.info("[JobKey] name:{},group:{}",key.getName(),key.getGroup());
+        log.info("[JobKey] name:{},group:{}", key.getName(), key.getGroup());
 
     }
 }

@@ -31,43 +31,46 @@ public class MinioUtil {
 
     @Autowired
     public MinioUtil(MinioConfig minioConfig) {
-        minioClient= MinioClient.builder()
+        minioClient = MinioClient.builder()
                 .endpoint(minioConfig.getUrl())
                 .credentials(minioConfig.getAccessKey(), minioConfig.getSecretKey())
                 .build();
     }
 
-    private MinioUtil(){
+    private MinioUtil() {
         throw new AssertionError(" Tool classes are not allowed to be created ");
     }
 
     /**
      * 判断bucket存不存在
+     *
      * @param bucketName
      * @return
      */
     public static boolean bucketExist(String bucketName) throws AllMinioException {
         try {
             return minioClient.bucketExists(BucketExistsArgs.builder().bucket(bucketName).build());
-        } catch (MinioException|InvalidKeyException|IOException|NoSuchAlgorithmException e) {
-            throw new AllMinioException("Call bucketExist method failed with arg: "+bucketName,e.getCause());
+        } catch (MinioException | InvalidKeyException | IOException | NoSuchAlgorithmException e) {
+            throw new AllMinioException("Call bucketExist method failed with arg: " + bucketName, e.getCause());
         }
     }
 
     /**
      * 创建bucket
+     *
      * @param bucketName
      */
     public static void makeBucket(String bucketName) throws AllMinioException {
         try {
             minioClient.makeBucket(MakeBucketArgs.builder().bucket(bucketName).build());
-        } catch (MinioException|InvalidKeyException|IOException|NoSuchAlgorithmException e) {
-            throw new AllMinioException("Call makeBucket method failed with arg: "+bucketName,e.getCause());
+        } catch (MinioException | InvalidKeyException | IOException | NoSuchAlgorithmException e) {
+            throw new AllMinioException("Call makeBucket method failed with arg: " + bucketName, e.getCause());
         }
     }
 
     /**
      * 存储数据
+     *
      * @param bucketName
      * @param objectName
      * @param stream
@@ -75,28 +78,29 @@ public class MinioUtil {
      * @param contextType
      */
     public static void putObject(String bucketName, String objectName, InputStream stream, long size, String contextType) throws AllMinioException {
-        if(bucketName!=null&&!bucketExist(bucketName)){
+        if (bucketName != null && !bucketExist(bucketName)) {
             makeBucket(bucketName);
         }
         try {
             minioClient.putObject(PutObjectArgs.builder().bucket(bucketName).object(objectName).stream(
-                   stream, size, -1)
-                   .contentType(contextType)
-                   .build());
-        } catch (MinioException|InvalidKeyException|IOException|NoSuchAlgorithmException e) {
+                    stream, size, -1)
+                    .contentType(contextType)
+                    .build());
+        } catch (MinioException | InvalidKeyException | IOException | NoSuchAlgorithmException e) {
 
-            throw new AllMinioException("Upload Failed",e.getCause());
+            throw new AllMinioException("Upload Failed", e.getCause());
         }
     }
 
     public static String putAndGetUrl(String bucketName, String objectName, InputStream stream, long size, String contextType) throws AllMinioException {
-        putObject(bucketName,objectName,stream,size,contextType);
+        putObject(bucketName, objectName, stream, size, contextType);
 //        getTemporaryUrl
         return "";
     }
 
     /**
      * 获取 临时的 图片链接
+     *
      * @param bucketName
      * @param objectName
      * @return
@@ -111,8 +115,8 @@ public class MinioUtil {
                             .object(objectName)
                             .expiry(2, TimeUnit.HOURS)
                             .build());
-        }catch (MinioException|InvalidKeyException|IOException|NoSuchAlgorithmException e) {
-            throw new AllMinioException(String.format("Call getTemporaryUrl method failed with arg: %s , %s",bucketName,objectName),e.getCause());
+        } catch (MinioException | InvalidKeyException | IOException | NoSuchAlgorithmException e) {
+            throw new AllMinioException(String.format("Call getTemporaryUrl method failed with arg: %s , %s", bucketName, objectName), e.getCause());
         }
     }
 

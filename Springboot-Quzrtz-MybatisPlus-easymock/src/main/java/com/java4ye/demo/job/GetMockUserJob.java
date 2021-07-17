@@ -52,13 +52,13 @@ public class GetMockUserJob extends QuartzJobBean {
             objectMapper.registerModule(new JavaTimeModule());
             JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, User.class);
             List<User> users = objectMapper.readValue(data.toString(), javaType);
-            StopWatch stopWatch = new StopWatch("save mock users : "+users.size());
+            StopWatch stopWatch = new StopWatch("save mock users : " + users.size());
             stopWatch.start("save mock users");
 // 插入一个用户试试
 //            User user = users.get(0);
 //            userService.save(user);
 //            批量插入用户
-            userService.saveBatch(users,5000);
+            userService.saveBatch(users, 5000);
             stopWatch.stop();
             System.out.println(stopWatch.prettyPrint());
         }

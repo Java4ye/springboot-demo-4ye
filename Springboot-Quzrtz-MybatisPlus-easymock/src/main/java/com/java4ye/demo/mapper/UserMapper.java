@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
  * <p>
- *  Mapper 接口
+ * Mapper 接口
  * </p>
  *
  * @author Java4ye
@@ -14,6 +14,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 public interface UserMapper extends BaseMapper<User> {
     /**
      * 增加用户
+     *
      * @param record
      * @return
      */
