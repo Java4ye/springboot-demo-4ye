@@ -4,6 +4,11 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+##
+
+gradle-java
+springcloud-gateway-demo
+springboot-aop
 
 *.log
 .mvn

@@ -13,8 +13,9 @@ import top.ryzeyang.demo.common.api.CommonResult;
  * @author Java4ye
  * @date 2020/12/25 上午 10:32
  * @微信公众号： Java4ye
- * @GitHub https://github.com/RyzeYang
- * @博客 https://blog.csdn.net/weixin_40251892
+ * @GitHub https://github.com/Java4ye
+ * @CSDN https://blog.csdn.net/weixin_40251892
+ * @掘金 https://juejin.cn/user/2304992131153981
  */
 @Component
 @Aspect

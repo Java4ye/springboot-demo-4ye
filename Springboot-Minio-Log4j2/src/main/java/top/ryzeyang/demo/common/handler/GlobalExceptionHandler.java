@@ -11,8 +11,9 @@ import top.ryzeyang.demo.common.exceptions.AllMinioException;
  * @author Java4ye
  * @date 2020/12/24 上午 10:35
  * @微信公众号： Java4ye
- * @GitHub https://github.com/RyzeYang
- * @博客 https://blog.csdn.net/weixin_40251892
+ * @GitHub https://github.com/Java4ye
+ * @CSDN https://blog.csdn.net/weixin_40251892
+ * @掘金 https://juejin.cn/user/2304992131153981
  */
 @RestControllerAdvice
 @Slf4j

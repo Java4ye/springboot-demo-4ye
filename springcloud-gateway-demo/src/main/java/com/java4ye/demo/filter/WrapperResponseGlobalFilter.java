@@ -28,8 +28,9 @@ import java.nio.charset.Charset;
  * @author Java4ye
  * @date 2021/2/3 22:52
  * @微信公众号： Java4ye
- * @GitHub https://github.com/RyzeYang
- * @博客 https://blog.csdn.net/weixin_40251892
+ * @GitHub https://github.com/Java4ye
+ * @CSDN https://blog.csdn.net/weixin_40251892
+ * @掘金 https://juejin.cn/user/2304992131153981
  */
 
 @Component
@@ -66,6 +67,7 @@ public class WrapperResponseGlobalFilter implements GlobalFilter, Ordered {
                 return Flux.just(dataBuffer);
             }
         };
+        
         /*ServerHttpResponse originalResponse = exchange.getResponse();
         DataBufferFactory bufferFactory = originalResponse.bufferFactory();
         ServerHttpResponseDecorator decoratedResponse = new ServerHttpResponseDecorator(originalResponse) {
@@ -102,6 +104,7 @@ public class WrapperResponseGlobalFilter implements GlobalFilter, Ordered {
                 e.printStackTrace();
             }
         });*/
+        
         // replace response with decorator
         return chain.filter(exchange.mutate().request(serverHttpRequestDecorator)
 //                .response(decoratedResponse)

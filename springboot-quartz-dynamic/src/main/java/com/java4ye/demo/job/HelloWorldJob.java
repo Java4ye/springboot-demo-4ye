@@ -9,8 +9,9 @@ import org.springframework.scheduling.quartz.QuartzJobBean;
  * @author Java4ye
  * @date 2021/2/8 21:11
  * @微信公众号： Java4ye
- * @GitHub https://github.com/RyzeYang
- * @博客 https://blog.csdn.net/weixin_40251892
+ * @GitHub https://github.com/Java4ye
+ * @CSDN https://blog.csdn.net/weixin_40251892
+ * @掘金 https://juejin.cn/user/2304992131153981
  */
 @Slf4j
 public class HelloWorldJob extends QuartzJobBean {

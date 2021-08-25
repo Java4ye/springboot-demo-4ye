@@ -10,8 +10,9 @@ import org.springframework.web.client.RestTemplate;
  * @author Java4ye
  * @date 2021/1/11 23:20
  * @微信公众号： Java4ye
- * @GitHub https://github.com/RyzeYang
- * @博客 https://blog.csdn.net/weixin_40251892
+ * @GitHub https://github.com/Java4ye
+ * @CSDN https://blog.csdn.net/weixin_40251892
+ * @掘金 https://juejin.cn/user/2304992131153981
  */
 @Configuration
 public class RestTemplateConfig {
