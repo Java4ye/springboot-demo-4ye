@@ -92,7 +92,7 @@
 
 > **对应文章👇:**
 >
-> 
+> [三分钟快速上手Spring事件机制](https://mp.weixin.qq.com/s/XjGIK11FeNpJWUTZhJhqlg)
 
 
 
