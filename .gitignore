@@ -6,9 +6,9 @@ target/
 
 ##
 
-gradle-java/*
-springcloud-gateway-demo/*
-springboot-aop/*
+/gradle-java/
+/springcloud-gateway-demo/
+/springboot-aop/
 
 *.log
 .mvn
