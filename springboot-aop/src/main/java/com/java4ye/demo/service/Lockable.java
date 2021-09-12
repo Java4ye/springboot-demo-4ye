@@ -8,4 +8,10 @@ package com.java4ye.demo.service;
  * @掘金 https://juejin.cn/user/2304992131153981
  */
 public interface Lockable {
+
+    void lock();
+
+    void unlock();
+
+    boolean locked();
 }

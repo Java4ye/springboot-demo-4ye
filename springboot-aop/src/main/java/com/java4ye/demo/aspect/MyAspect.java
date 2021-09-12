@@ -1,10 +1,11 @@
-package com.java4ye.demo;
+package com.java4ye.demo.aspect;
 
 import org.aopalliance.intercept.Joinpoint;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.stereotype.Component;
 
 /**
  * @author Java4ye
@@ -13,6 +14,7 @@ import org.aspectj.lang.annotation.Pointcut;
  * @CSDN https://blog.csdn.net/weixin_40251892
  * @掘金 https://juejin.cn/user/2304992131153981
  */
+@Component
 @Aspect
 public class MyAspect {
 

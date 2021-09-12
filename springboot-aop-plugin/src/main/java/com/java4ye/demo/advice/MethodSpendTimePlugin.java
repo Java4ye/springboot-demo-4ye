@@ -9,6 +9,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.StopWatch;
 
 /**
+ *
+ * 计算方法花费时间插件
+ *
  * @author Java4ye
  * @微信公众号： Java4ye
  * @GitHub https://github.com/Java4ye
@@ -16,7 +19,7 @@ import org.springframework.util.StopWatch;
  * @掘金 https://juejin.cn/user/2304992131153981
  */
 @Slf4j
-public class AroundAdvice implements MethodInterceptor {
+public class MethodSpendTimePlugin implements MethodInterceptor {
 
 
     @Override

@@ -6,6 +6,9 @@ import org.springframework.aop.MethodBeforeAdvice;
 import java.lang.reflect.Method;
 
 /**
+ *
+ * 方法调用次数插件
+ *
  * @author Java4ye
  * @微信公众号： Java4ye
  * @GitHub https://github.com/Java4ye
@@ -13,7 +16,7 @@ import java.lang.reflect.Method;
  * @掘金 https://juejin.cn/user/2304992131153981
  */
 @Slf4j
-public class CountingBeforeAdvice implements MethodBeforeAdvice {
+public class MethodCountingTimesPlugin implements MethodBeforeAdvice {
 
     private int count;
 

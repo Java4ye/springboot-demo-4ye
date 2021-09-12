@@ -1,5 +1,7 @@
 package com.java4ye.demo.service;
 
+import org.springframework.stereotype.Service;
+
 /**
  * @author Java4ye
  * @微信公众号： Java4ye
@@ -7,5 +9,11 @@ package com.java4ye.demo.service;
  * @CSDN https://blog.csdn.net/weixin_40251892
  * @掘金 https://juejin.cn/user/2304992131153981
  */
-public class ISayService {
+
+public interface ISayService {
+
+    void say();
+
+    void setName(String name);
+
 }
