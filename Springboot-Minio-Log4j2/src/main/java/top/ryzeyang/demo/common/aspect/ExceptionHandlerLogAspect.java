@@ -26,13 +26,17 @@ public class ExceptionHandlerLogAspect {
     private void pointcut() {
     }
 
+    @Pointcut("within(top.ryzeyang.demo.controller.MinioController)")
+    public void a(){
+
+    }
     /**
      * 唯一 ID， 方便在日志中直接定位到问题点
      *
      * @param point
      * @return
      */
-    @Around("pointcut()")
+    @Around("pointcut() || a()")
     public CommonResult<String> around(ProceedingJoinPoint point) {
         String uuid = UUID.randomUUID().toString();
         log.error("Error uuid: {}", uuid);

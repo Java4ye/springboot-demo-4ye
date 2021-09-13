@@ -1,4 +1,4 @@
-package top.ryzeyang.demo.Controller;
+package top.ryzeyang.demo.controller;
 
 import cn.hutool.core.util.StrUtil;
 import io.minio.GetPresignedObjectUrlArgs;
@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import top.ryzeyang.demo.model.dto.FileDTO;
-import top.ryzeyang.demo.model.vo.FileVO;
 import top.ryzeyang.demo.utils.CommonResultUtil;
 import top.ryzeyang.demo.utils.MinioUtil;
 import top.ryzeyang.demo.common.api.CommonResult;
