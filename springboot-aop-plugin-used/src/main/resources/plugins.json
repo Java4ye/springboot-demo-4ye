@@ -1,0 +1,20 @@
+{
+  "plugins":[
+    {
+      "id": "1",
+      "name": "MethodCountingTimesPlugin",
+      "desc": "调用方法次数统计",
+      "class": "com.java4ye.demo.advice.MethodCountingTimesPlugin",
+      "jarPath": "",
+      "active": true
+    },
+    {
+      "id": "2",
+      "name": "MethodSpendTimePlugin",
+      "desc": "调用方法耗时记录",
+      "class": "com.java4ye.demo.advice.MethodSpendTimePlugin",
+      "jarPath": "",
+      "active": true
+    }
+  ]
+}
