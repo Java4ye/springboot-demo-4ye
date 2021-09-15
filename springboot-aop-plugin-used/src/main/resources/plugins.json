@@ -5,16 +5,18 @@
       "name": "MethodCountingTimesPlugin",
       "desc": "调用方法次数统计",
       "class": "com.java4ye.demo.advice.MethodCountingTimesPlugin",
-      "jarPath": "",
-      "active": true
+      "jarPath": "I:/java4ye-aop-plugin.jar",
+      "active": true,
+      "cache": false
     },
     {
       "id": "2",
       "name": "MethodSpendTimePlugin",
       "desc": "调用方法耗时记录",
       "class": "com.java4ye.demo.advice.MethodSpendTimePlugin",
-      "jarPath": "",
-      "active": true
+      "jarPath": "I:/java4ye-aop-plugin.jar",
+      "active": true,
+      "cache": true
     }
   ]
 }

@@ -22,7 +22,7 @@ public class Plugin {
     private String jarPath;
 
     @JsonProperty("id")
-    private Integer id;
+    private String id;
 
     @JsonProperty("class")
     private String clazz;
@@ -31,6 +31,9 @@ public class Plugin {
     private String desc;
 
     @JsonProperty("active")
-    private boolean active;
+    private Boolean active;
+
+    @JsonProperty("cache")
+    private Boolean cache;
 
 }

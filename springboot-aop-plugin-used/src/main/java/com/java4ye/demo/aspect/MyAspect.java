@@ -1,0 +1,28 @@
+package com.java4ye.demo.aspect;
+
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.stereotype.Component;
+
+/**
+ * @author Java4ye
+ * @微信公众号： Java4ye
+ * @GitHub https://github.com/Java4ye
+ * @CSDN https://blog.csdn.net/weixin_40251892
+ * @掘金 https://juejin.cn/user/2304992131153981
+ */
+@Component
+@Aspect
+public class MyAspect {
+
+    @Pointcut("execution(* com.java4ye.demo.service.*.*(..))")
+    public void a(){}
+
+    @Before("a()")
+    public void before(JoinPoint joinPoint){
+//        System.out.println("MyAspect before ");
+    }
+
+}

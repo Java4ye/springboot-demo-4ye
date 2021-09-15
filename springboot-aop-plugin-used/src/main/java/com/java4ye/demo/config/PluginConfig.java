@@ -25,14 +25,16 @@ import java.util.Map;
 
 @Configuration
 @Slf4j
-public class PuginConfig {
+public class PluginConfig {
 
     @Value("${plugin.path}")
     private String path;
 
     private List<Plugin> plugins=null;
 
-    public static final Map<Integer,Plugin> PLUGIN_MAP =new HashMap<>();
+    public static final Map<String,Plugin> PLUGIN_MAP =new HashMap<>();
+
+    // TODO 刷缓存，
 
     @PostConstruct
     public void initPlugins(){
@@ -42,7 +44,7 @@ public class PuginConfig {
             return;
         }
         for (Plugin plugin : plugins) {
-            Integer id = plugin.getId();
+            String id = plugin.getId();
             PLUGIN_MAP.putIfAbsent(id, plugin);
         }
     }

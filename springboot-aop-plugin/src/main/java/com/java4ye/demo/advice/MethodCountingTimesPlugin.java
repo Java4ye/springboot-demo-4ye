@@ -4,9 +4,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.aop.MethodBeforeAdvice;
 
 import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
- *
  * 方法调用次数插件
  *
  * @author Java4ye
@@ -18,17 +19,21 @@ import java.lang.reflect.Method;
 @Slf4j
 public class MethodCountingTimesPlugin implements MethodBeforeAdvice {
 
-    private int count;
+    /**
+     * 针对不同类中的方法做统计
+     */
+    private Map<String, Integer> methodMap = new HashMap<>();
 
     @Override
     public void before(Method m, Object[] args, Object target) throws Throwable {
-        ++count;
-        log.info("{}",this.getClass().getName());
-        log.info("call method {} times : {}",m.getName(),count);
-    }
-
-    public int getCount() {
-        return count;
+        String className = target.getClass().getSimpleName();
+        
+        String methodName = m.getName();
+        Integer methodCount = methodMap.getOrDefault(className+"."+methodName, 0);
+        ++methodCount;
+        methodMap.put(methodName, methodCount);
+        log.info("{}", this.getClass().getName());
+        log.info("call class: {} method {} times : {}", className,methodName, methodCount);
     }
 
 }
