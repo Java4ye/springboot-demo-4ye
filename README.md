@@ -2,31 +2,39 @@
 
 目前已经有以下这些 `demo` 👇
 
+<br/>
 
+### 一. Springboot 事件机制 ⭐
 
-
-
-#### ⭐Springboot 事件机制发送短信，邮件
+<br/>
 
 **对应模块👇**
 
 **springboot-event**
 
+<br/>
 
+> **项目描述：**
+>
+> 根据小伙伴反馈事件去**发送短信和邮件**
+
+<br/>
 
 **涉及技术**：
 
 1. **Spring事件机制**
 
-
+<br/>
 
 > **对应文章👇:**
 >
 > [三分钟快速上手Spring事件机制](https://mp.weixin.qq.com/s/XjGIK11FeNpJWUTZhJhqlg)
 
+<br/>
 
+### 二. Spring AOP 插件模块 ⭐
 
-#### ⭐Spring AOP 插件模块
+<br/>
 
 **对应模块👇**
 
@@ -34,14 +42,20 @@
 
 **springboot-aop-plugin-used**
 
+<br/>
 
+> **项目描述：**
+>
+> **实现插件可插拔的特点**
+
+<br/>
 
 **涉及技术**：
 
 1. **Spring 编程式 AOP**
 2. **类加载器 ClassLoader**
 
-
+<br/>
 
 > **对应文章👇:**
 >
@@ -51,9 +65,11 @@
 
 
 
+<br/>
 
+### 三. Springboot 自定义 starter ⭐
 
-#### ⭐Springboot 自定义 starter
+<br/>
 
 **对应模块👇**
 
@@ -61,7 +77,13 @@
 
 **springboot-starter-hello**
 
+<br/>
 
+> **项目描述：**
+>
+> 自定义 starter 模块基础，方便在别的项目中使用
+
+<br/>
 
 **涉及技术**：
 
@@ -69,7 +91,7 @@
 2. **Springboot 自动装配原理**
 3. **Springboot 自定义starter**
 
-
+<br/>
 
 > **对应文章👇:**
 >
@@ -79,21 +101,23 @@
 >
 > [简单两步搞定Springboot自定义starter](https://mp.weixin.qq.com/s/aNJdPNuxlrEsxo-mRhQn8Q)
 
+<br/>
 
+### N. Springboot+Minio 的使用
 
-#### Springboot+Minio的使用
+<br/>
 
 **对应模块👇**
 
 **Springboot-Minio-Log4j2**
 
-
+<br/>
 
 > **项目描述：**
 >
 > 使用 `docker` 搭建 `Minio` 作为对象存储服务器，通过 `Springboot` 搭建一个上传并回显图片的web应用，日志使用 `Log4j2`，结合 `Aop` 和全局异常处理使用
 
-
+<br/>
 
 > **对应文章👇**:
 >
@@ -103,9 +127,11 @@
 >
 > [Springboot之日志错误信息定位](https://mp.weixin.qq.com/s/XNwqOnYOJPDH10yB2QMRvg)
 
+<br/>
 
+### N+1. Springboot+quartz 的核心方法
 
-#### Springboot+quartz的核心方法
+<br/>
 
 **对应模块👇**
 
@@ -115,27 +141,29 @@
 >
 > 记录 `Springboot+quartz` 动态定时任务的核心方法
 
-
+<br/>
 
 > **对应文章👇**:
 >
 > [Springboot+quartz 动态定时任务笔记](https://mp.weixin.qq.com/s/sU7reEsSaZj5FtGtJ2LAbg)
 
+<br/>
 
+### N+2.  Springboot+easymock 的练习
 
-#### Springboot+Quzrtz+MybatisPlus+easymock 的使用
+<br/>
 
 **对应模块👇**
 
 **Springboot-Quzrtz-MybatisPlus-easymock**
 
-
+<br/>
 
 > **项目描述：**
 >
 > 记录 `Springboot+quartz` 动态定时任务的核心方法
 
-
+<br/>
 
 > **对应文章👇**:
 >
@@ -145,7 +173,7 @@
 >
 > [docker安装easymock](https://mp.weixin.qq.com/s/nFYSDZmoUJCosRvufdDiBw)
 
-
+<br/>
 
 ### 最后
 
@@ -153,7 +181,7 @@
 
 可以在博主的个人公众号中进行反馈哦 ！🤗 
 
-
+<br/>
 
 >  @微信公众号： Java4ye
 >
@@ -163,6 +191,6 @@
 >
 >  @博客 [开源中国] https://my.oschina.net/java4ye
 
-
+<br/>
 
 ![wechat](http://img.ryzeyang.top/20201202082043.png)
