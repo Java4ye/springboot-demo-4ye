@@ -32,7 +32,7 @@ public class TestController {
 
     @GetMapping("/say2")
     public String say2(){
-        String hello = sayService.hello2("喜欢的小伙伴们可以点点 star 鼓励下支持下 【Java4ye】 吗！感谢！！");
+        String hello = sayService.hello2("【Java4ye】 say2 ：喜欢的小伙伴们可以点点 star 鼓励下支持下吗！感谢！！");
         log.info(hello);
         return hello;
     }
@@ -46,7 +46,7 @@ public class TestController {
 
     @GetMapping("/hello2")
     public String hello2(){
-        String hello = helloService.hello2("喜欢的小伙伴们可以点点 star 鼓励下支持下 【Java4ye】 吗！感谢！！");
+        String hello = helloService.hello2("【Java4ye】 hello2 ：喜欢的小伙伴们可以点点 star 鼓励下支持下吗！感谢！！");
         log.info(hello);
         return hello;
     }

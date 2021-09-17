@@ -26,14 +26,18 @@ public class MethodCountingTimesPlugin implements MethodBeforeAdvice {
 
     @Override
     public void before(Method m, Object[] args, Object target) throws Throwable {
+
         String className = target.getClass().getSimpleName();
-        
         String methodName = m.getName();
-        Integer methodCount = methodMap.getOrDefault(className+"."+methodName, 0);
+        String key = className + "." + methodName;
+
+        Integer methodCount = methodMap.getOrDefault(key, 0);
         ++methodCount;
-        methodMap.put(methodName, methodCount);
+
+        methodMap.put(key, methodCount);
+
         log.info("{}", this.getClass().getName());
-        log.info("call class: {} method {} times : {}", className,methodName, methodCount);
+        log.info("call class: {} , method {} , times : {}", className, methodName, methodCount);
     }
 
 }
