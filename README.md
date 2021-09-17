@@ -4,7 +4,64 @@
 
 
 
-#### 一. `hello-spring-boot-starter` 和 `springboot-demo-starter-hello` 
+
+
+#### ⭐Springboot 事件机制发送短信，邮件
+
+**对应模块👇**
+
+**springboot-event**
+
+
+
+**涉及技术**：
+
+1. **Spring事件机制**
+
+
+
+> **对应文章👇:**
+>
+> [三分钟快速上手Spring事件机制](https://mp.weixin.qq.com/s/XjGIK11FeNpJWUTZhJhqlg)
+
+
+
+#### ⭐Spring AOP 插件模块
+
+**对应模块👇**
+
+**springboot-aop-plugin**
+
+**springboot-aop-plugin-used**
+
+
+
+**涉及技术**：
+
+1. **Spring 编程式 AOP**
+2. **类加载器 ClassLoader**
+
+
+
+> **对应文章👇:**
+>
+> [Spring AOP内功修炼!!](https://mp.weixin.qq.com/s/N1t-t0FhQhdzIo_ljhxBbQ)
+>
+> [AOP 插件就这？上手不用两分钟！！](https://mp.weixin.qq.com/s/tEkjWnygz3SCa_aMdveNYQ)
+
+
+
+
+
+#### ⭐Springboot 自定义 starter
+
+**对应模块👇**
+
+**hello-springboot-starter**
+
+**springboot-starter-hello**
+
+
 
 **涉及技术**：
 
@@ -24,7 +81,11 @@
 
 
 
-#### 二. Springboot-Minio-Log4j2
+#### Springboot+Minio的使用
+
+**对应模块👇**
+
+**Springboot-Minio-Log4j2**
 
 
 
@@ -44,9 +105,11 @@
 
 
 
-#### 三. springboot-quartz-dynamic
+#### Springboot+quartz的核心方法
 
+**对应模块👇**
 
+**springboot-quartz-dynamic**
 
 > **项目描述：**
 >
@@ -60,7 +123,11 @@
 
 
 
-#### 四. Springboot-Quzrtz-MybatisPlus-easymock
+#### Springboot+Quzrtz+MybatisPlus+easymock 的使用
+
+**对应模块👇**
+
+**Springboot-Quzrtz-MybatisPlus-easymock**
 
 
 
@@ -80,30 +147,6 @@
 
 
 
-#### 五. springboot-demo-event
-
-
-
-**涉及技术**：
-
-1. **Spring事件机制**
-
-
-
-> **对应文章👇:**
->
-> [三分钟快速上手Spring事件机制](https://mp.weixin.qq.com/s/XjGIK11FeNpJWUTZhJhqlg)
-
-
-
-
-
-
-
-
-
-
-
 ### 最后
 
 **感谢每一颗 star ！！😝**
@@ -113,8 +156,12 @@
 
 
 >  @微信公众号： Java4ye
+>
 >  @博客 [csdn] https://blog.csdn.net/weixin_40251892
+>
 >  @博客 [掘金]  https://juejin.cn/user/2304992131153981
+>
+>  @博客 [开源中国] https://my.oschina.net/java4ye
 
 
 
