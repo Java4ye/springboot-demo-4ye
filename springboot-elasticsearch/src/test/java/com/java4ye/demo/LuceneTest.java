@@ -2,16 +2,10 @@ package com.java4ye.demo;
 
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.*;
-import org.apache.lucene.index.DirectoryReader;
-import org.apache.lucene.index.IndexReader;
-import org.apache.lucene.index.IndexWriter;
-import org.apache.lucene.index.IndexWriterConfig;
+import org.apache.lucene.index.*;
 import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.queryparser.classic.QueryParser;
-import org.apache.lucene.search.IndexSearcher;
-import org.apache.lucene.search.Query;
-import org.apache.lucene.search.ScoreDoc;
-import org.apache.lucene.search.TopDocs;
+import org.apache.lucene.search.*;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import org.junit.jupiter.api.BeforeAll;
@@ -27,14 +21,14 @@ import java.nio.file.Path;
  * @CSDN https://blog.csdn.net/weixin_40251892
  * @掘金 https://juejin.cn/user/2304992131153981
  */
-public class LucentTest {
+public class LuceneTest {
 
-    User createUser(){
+    User createUser() {
         User java4ye = User.builder()
                 .id(12345678)
                 .name("Java4ye")
-                .age(1)
-                .desc("期待你的关注!").build();
+                .age(2)
+                .desc("nice to meet you 2!").build();
         return java4ye;
     }
 
@@ -48,12 +42,15 @@ public class LucentTest {
      * 6. 创建 IndexWriter 输出流对象，指定输出位置和使用的 config 初始化对象
      * 7. 写入文档到索引库
      * 8. 释放资源
+     *
      * @throws IOException
      */
     @Test
     void createIndex() throws IOException {
+
         // 1. 获取 原始数据
         User user = createUser();
+
         // 2. 创建 文档对象
         Document document = new Document();
 
@@ -63,7 +60,8 @@ public class LucentTest {
         // 分词：no
         // 索引：yes
         // 存储：yes
-        document.add(new StringField("id",String.valueOf(user.getId()), Field.Store.YES));
+        document.add(new StringField("id", String.valueOf(user.getId()), Field.Store.YES));
+//        document.add(new Field("id", String.valueOf(user.getId()), TextField.TYPE_STORED));
 
         // TextField
         // 分词：yes
@@ -71,9 +69,9 @@ public class LucentTest {
         // 存储：yes
         document.add(new TextField("age",String.valueOf(user.getAge()), Field.Store.YES));
 
-        document.add(new StringField("name",user.getName(), Field.Store.YES));
+        document.add(new TextField("name", user.getName(), Field.Store.YES));
 
-        document.add(new TextField("desc",user.getDesc(), Field.Store.YES));
+        document.add(new TextField("desc", user.getDesc(), Field.Store.YES));
 
 
         // 3. 创建 分词器
@@ -87,7 +85,8 @@ public class LucentTest {
 
         // 6
         try (IndexWriter indexWriter = new IndexWriter(directory, indexWriterConfig)) {
-          indexWriter.addDocument(document);
+            indexWriter.addDocument(document);
+            System.out.println(document);
         }
 
     }
@@ -95,7 +94,7 @@ public class LucentTest {
 
     /**
      * 1. 创建分词器（对搜索的关键词进行分词使用）和创建索引使用的分词器一样
-     *
+     * <p>
      * 2. 创建查询对象
      * 3. 设置搜索关键词
      * 4. 设置 Directory 目录对象，指定索引库的位置
@@ -115,27 +114,29 @@ public class LucentTest {
         StandardAnalyzer standardAnalyzer = new StandardAnalyzer();
 
 
-        String field="desc";
-        Class<? extends User> aClass = user.getClass();
-        java.lang.reflect.Field declaredField = aClass.getDeclaredField(field);
-        declaredField.setAccessible(true);
+        String field = "name";
+//        Class<? extends User> aClass = user.getClass();
+//        java.lang.reflect.Field declaredField = aClass.getDeclaredField(field);
+//        declaredField.setAccessible(true);
 
+//        TermQuery query = new TermQuery(new Term("name", "Java"));
 
-        String content=declaredField.get(user)+"";
+//        String content=declaredField.get(user)+"";
+        String content = "java4ye";
 
         // 创建查询对象
         QueryParser queryParser = new QueryParser(field, standardAnalyzer);
         // 设置搜索关键词
-        Query parse = queryParser.parse(content);
+        Query query = queryParser.parse(content);
 
         // 设置 Directory 目录对象，指定索引库的位置
         Directory directory = FSDirectory.open(Path.of("D:\\luceneIdx"));
 
-        IndexReader r=DirectoryReader.open(directory);
+        IndexReader r = DirectoryReader.open(directory);
 
         IndexSearcher indexSearcher = new IndexSearcher(r);
 
-        TopDocs topDocs = indexSearcher.search(parse, 10);
+        TopDocs topDocs = indexSearcher.search(query, 10);
         ScoreDoc[] scoreDocs = topDocs.scoreDocs;
         for (ScoreDoc scoreDoc : scoreDocs) {
             System.out.println(scoreDoc.doc);
