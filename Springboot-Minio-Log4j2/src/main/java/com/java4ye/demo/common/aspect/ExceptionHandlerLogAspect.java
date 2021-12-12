@@ -1,13 +1,11 @@
-package top.ryzeyang.demo.common.aspect;
+package com.java4ye.demo.common.aspect;
 
 import cn.hutool.core.lang.UUID;
 import lombok.extern.slf4j.Slf4j;
-import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
-import top.ryzeyang.demo.common.api.CommonResult;
+import com.java4ye.demo.common.api.CommonResult;
 
 /**
  * @author Java4ye
@@ -26,7 +24,7 @@ public class ExceptionHandlerLogAspect {
     private void pointcut() {
     }
 
-    @Pointcut("within(top.ryzeyang.demo.controller.MinioController)")
+    @Pointcut("within(com.java4ye.demo.controller.MinioController)")
     public void a(){
 
     }

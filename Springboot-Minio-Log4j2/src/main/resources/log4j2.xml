@@ -16,7 +16,7 @@
         <property name="LOG_PATTERN" value="%date{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"/>
         <!-- 定义日志存储的路径，不要配置相对路径 -->
         <!--   K:/Springboot-Minio     ${web:rootDir}-->
-        <property name="FILE_PATH" value="K:/Springboot-Minio"/>
+        <property name="FILE_PATH" value="."/>
         <property name="FILE_NAME" value="MinioLog"/>
     </Properties>
 

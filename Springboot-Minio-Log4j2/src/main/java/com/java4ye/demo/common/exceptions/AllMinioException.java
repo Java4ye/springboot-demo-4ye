@@ -1,4 +1,4 @@
-package top.ryzeyang.demo.common.exceptions;
+package com.java4ye.demo.common.exceptions;
 
 /**
  * @author Java4ye

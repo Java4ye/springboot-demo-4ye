@@ -1,11 +1,11 @@
-package top.ryzeyang.demo.common.handler;
+package com.java4ye.demo.common.handler;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import top.ryzeyang.demo.utils.CommonResultUtil;
-import top.ryzeyang.demo.common.api.CommonResult;
-import top.ryzeyang.demo.common.exceptions.AllMinioException;
+import com.java4ye.demo.utils.CommonResultUtil;
+import com.java4ye.demo.common.api.CommonResult;
+import com.java4ye.demo.common.exceptions.AllMinioException;
 
 /**
  * @author Java4ye

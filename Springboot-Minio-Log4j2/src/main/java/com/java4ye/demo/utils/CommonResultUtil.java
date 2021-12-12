@@ -1,8 +1,8 @@
-package top.ryzeyang.demo.utils;
+package com.java4ye.demo.utils;
 
 
-import top.ryzeyang.demo.common.api.CommonResult;
-import top.ryzeyang.demo.common.api.ResultEnum;
+import com.java4ye.demo.common.api.CommonResult;
+import com.java4ye.demo.common.api.ResultEnum;
 
 /**
  * @author Java4ye

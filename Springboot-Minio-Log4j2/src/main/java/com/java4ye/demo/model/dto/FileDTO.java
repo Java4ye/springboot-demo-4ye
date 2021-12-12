@@ -1,4 +1,4 @@
-package top.ryzeyang.demo.model.vo;
+package com.java4ye.demo.model.dto;
 
 import lombok.Builder;
 import lombok.Data;
@@ -13,7 +13,7 @@ import lombok.Data;
  */
 @Data
 @Builder
-public class FileVO {
+public class FileDTO {
     private String name;
     private String url;
 }

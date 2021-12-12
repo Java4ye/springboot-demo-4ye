@@ -1,4 +1,4 @@
-package top.ryzeyang.demo.common.api;
+package com.java4ye.demo.common.api;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

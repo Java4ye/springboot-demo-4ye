@@ -1,6 +1,8 @@
-package top.ryzeyang.demo.controller;
+package com.java4ye.demo.controller;
 
 import cn.hutool.core.util.StrUtil;
+import com.java4ye.demo.common.exceptions.AllMinioException;
+import com.java4ye.demo.utils.CommonResultUtil;
 import io.minio.GetPresignedObjectUrlArgs;
 import io.minio.ListObjectsArgs;
 import io.minio.Result;
@@ -16,11 +18,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import top.ryzeyang.demo.model.dto.FileDTO;
-import top.ryzeyang.demo.utils.CommonResultUtil;
-import top.ryzeyang.demo.utils.MinioUtil;
-import top.ryzeyang.demo.common.api.CommonResult;
-import top.ryzeyang.demo.common.exceptions.AllMinioException;
+import com.java4ye.demo.model.dto.FileDTO;
+import com.java4ye.demo.utils.MinioUtil;
+import com.java4ye.demo.common.api.CommonResult;
 
 import java.io.IOException;
 import java.io.InputStream;
