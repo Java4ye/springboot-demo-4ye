@@ -1,8 +1,8 @@
-package com.java4ye.demo.utils;
+package cn.java4ye.demo.utils;
 
 
-import com.java4ye.demo.common.api.CommonResult;
-import com.java4ye.demo.common.api.ResultEnum;
+import cn.java4ye.demo.common.api.CommonResult;
+import cn.java4ye.demo.common.api.ResultEnum;
 
 /**
  * @author Java4ye
@@ -24,6 +24,10 @@ public class CommonResultUtil {
 
     public static <T> CommonResult<T> serverError(T data) {
         return new CommonResult<>(ResultEnum.SERVER_ERROR, data);
+    }
+
+    public static <T> CommonResult<T> serverError(ResultEnum errorCode,T data) {
+        return new CommonResult<>(errorCode, data);
     }
 
     public static <T> CommonResult<T> thirdPartyError(T data) {

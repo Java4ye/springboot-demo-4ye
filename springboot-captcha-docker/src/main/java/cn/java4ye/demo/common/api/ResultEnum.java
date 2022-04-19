@@ -1,4 +1,4 @@
-package com.java4ye.demo.common.api;
+package cn.java4ye.demo.common.api;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,6 +26,11 @@ public enum ResultEnum {
 
     // 系统错误
     SERVER_ERROR("B0001", "SERVER_ERROR"),
+
+    // 下载错误
+    DOWNLOAD_ERROR("B0002", "DOWNLOAD_ERROR"),
+
+
     // 调用第三方服务出错
     THIRD_PARTY_ERROR("C0001", "THIRD_PARTY_ERROR");
 

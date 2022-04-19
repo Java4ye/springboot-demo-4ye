@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.5.9</version>
+        <version>2.4.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>cn.java4ye</groupId>
@@ -13,15 +13,47 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>demo</name>
     <description>Demo project for Spring Boot</description>
+
     <properties>
-        <java.version>11</java.version>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
+
     <dependencies>
+        <!--验证码-->
+<!--        <dependency>-->
+<!--            <groupId>com.github.whvcse</groupId>-->
+<!--            <artifactId>easy-captcha</artifactId>-->
+<!--            <version>1.6.2</version>-->
+<!--        </dependency>-->
+
+            <dependency>
+                <groupId>com.pig4cloud.plugin</groupId>
+                <artifactId>captcha-spring-boot-starter</artifactId>
+                <version>2.2.1</version>
+            </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -35,7 +67,54 @@
     </dependencies>
 
     <build>
+        <finalName>captcha-demo</finalName>
         <plugins>
+<!--            &lt;!&ndash;使用docker-maven-plugin插件&ndash;&gt;-->
+<!--            <plugin>-->
+<!--                <groupId>com.spotify</groupId>-->
+<!--                <artifactId>docker-maven-plugin</artifactId>-->
+<!--                <version>1.0.0</version>-->
+
+<!--                &lt;!&ndash;将插件绑定在某个phase执行&ndash;&gt;-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>build-image</id>-->
+<!--                        &lt;!&ndash;将插件绑定在package这个phase上。也就是说，-->
+<!--                        用户只需执行mvn package ，就会自动执行mvn docker:build&ndash;&gt;-->
+<!--                        <phase>package</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>build</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+
+<!--                <configuration>-->
+<!--                    &lt;!&ndash;指定生成的镜像名,这里是我们的项目名&ndash;&gt;-->
+<!--                    <imageName>${project.artifactId}</imageName>-->
+<!--                    &lt;!&ndash;指定标签 这里指定的是镜像的版本，我们默认版本是latest&ndash;&gt;-->
+<!--                    <imageTags>-->
+<!--                        <imageTag>latest</imageTag>-->
+<!--                    </imageTags>-->
+<!--                    &lt;!&ndash; 指定我们项目中Dockerfile文件的路径&ndash;&gt;-->
+<!--                    <dockerDirectory>${project.basedir}</dockerDirectory>-->
+
+<!--                    &lt;!&ndash;指定远程docker 地址&ndash;&gt;-->
+<!--                    <dockerHost>http://192.168.175.128:2375</dockerHost>-->
+
+<!--                    &lt;!&ndash; 这里是复制 jar 包到 docker 容器指定目录配置 &ndash;&gt;-->
+<!--                    <resources>-->
+<!--                        <resource>-->
+<!--                            <targetPath>/</targetPath>-->
+<!--                            &lt;!&ndash;jar包所在的路径  此处配置的即对应项目中target目录&ndash;&gt;-->
+<!--                            <directory>${project.build.directory}</directory>-->
+<!--                            &lt;!&ndash; 需要包含的 jar包 ，这里对应的是 Dockerfile中添加的文件名　&ndash;&gt;-->
+<!--                            <include>${project.build.finalName}.jar</include>-->
+<!--                        </resource>-->
+<!--                    </resources>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+
+
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>

@@ -1,21 +1,20 @@
 # 2.2.9 官方推荐方式
 # https://docs.spring.io/spring-boot/docs/2.2.9.RELEASE/reference/htmlsingle/#containers-deployment
 
-MAINTAINER Jav4ye
-FROM adoptopenjdk:11-jdk-hotspot as builder
-WORKDIR target/dependency
-ARG APPJAR=/captcha-demo2.jar
-COPY ${APPJAR} app.jar
-RUN jar -xf ./app.jar
+# MAINTAINER Jav4ye
+# 第一个得是 FROM 才能正常构建
+FROM adoptopenjdk:11-jre-hotspot as builder
+WORKDIR application
+ARG JAR_FILE=/target/captcha-demo.jar
+COPY ${JAR_FILE} application.jar
+RUN java -Djarmode=layertools -jar application.jar extract
 
-FROM adoptopenjdk:11-jdk-hotspot
-VOLUME /tmp
-ARG DEPENDENCY=target/dependency
-COPY --from=builder ${DEPENDENCY}/BOOT-INF/lib /app/lib
-COPY --from=builder ${DEPENDENCY}/META-INF /app/META-INF
-COPY --from=builder ${DEPENDENCY}/BOOT-INF/classes /app
-
+FROM adoptopenjdk:11-jre-hotspot
+WORKDIR application
+COPY --from=builder application/dependencies/ ./
+COPY --from=builder application/spring-boot-loader/ ./
+COPY --from=builder application/snapshot-dependencies/ ./
+COPY --from=builder application/application/ ./
 ENV TZ="Asia/Shanghai"
 ENV JVM_OPTS="-Xmx512m -Xms512m"
-ENTRYPOINT ["sh","-c","java -cp app:app/lib/* ${JVM_OPTS} CaptchaApplication"]
-
+ENTRYPOINT ["sh","-c","java ${JVM_OPTS} org.springframework.boot.loader.JarLauncher"]
