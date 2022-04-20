@@ -41,15 +41,15 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 <!--				用 Springboot 插件打包，但是我们没有 main 方法，会报错，这里跳过就好了 -->
-				<configuration>
-					<skip>true</skip>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
-				</configuration>
+<!--				<configuration>-->
+<!--					<skip>true</skip>-->
+<!--					<excludes>-->
+<!--						<exclude>-->
+<!--							<groupId>org.projectlombok</groupId>-->
+<!--							<artifactId>lombok</artifactId>-->
+<!--						</exclude>-->
+<!--					</excludes>-->
+<!--				</configuration>-->
 			</plugin>
 		</plugins>
 	</build>
