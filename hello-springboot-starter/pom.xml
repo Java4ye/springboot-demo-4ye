@@ -6,8 +6,8 @@
 
     <groupId>org.4ye</groupId>
     <artifactId>hello-spring-boot-starter</artifactId>
-    <version>1.0-SNAPSHOT</version>
-
+    <version>2.0-SNAPSHOT</version>
+ 
 
     <packaging>jar</packaging>
 
