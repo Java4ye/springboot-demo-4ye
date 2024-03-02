@@ -1,0 +1,86 @@
+#mybatis-plus:
+#  type-aliases-package: com.java4ye.demo.model # 别名扫描包
+logging:
+  level:
+    com.java4ye.demo: info
+  pattern:
+    dateformat: yyyy-MM-dd HH:mm:ss.SSS
+
+spring:
+  #  rabbitmq
+  rabbitmq:
+    host: 自己的ip
+    port: 8009
+    username: guest
+    password: guest
+    virtual-host: /
+    listener:
+      simple:
+        acknowledge-mode: manual # 消费者手动确认消息
+        retry:
+          enabled: true
+          multiplier: 2
+    publisher-confirm-type: correlated # 确认模式 confirm
+    publisher-returns: true # 回退模式
+  #   mysql
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://自己的ip:8006/prod_db?useSSL=false&serverTimezone=UTC
+    username: root
+    password: 自己的密码
+  #    redis
+  redis:
+    host: 自己的ip
+    database: 0
+    port: 8008
+    password: 自己的密码  # 密码
+    timeout: 10000  #ms
+    lettuce:
+      shutdown-timeout: 1000 #ms
+      pool:
+        max-active: 12 # 连接池最大连接数
+        max-wait: 1500   #ms 连接池最大阻塞等待时间（使用负值表示没有限制）
+        min-idle: 3 # 连接池中的最小空闲连接
+        max-idle: 8 # 连接池中的最大空闲连接
+
+    redisson:
+      config: |
+        singleServerConfig:
+           password: 自己的密码
+           timeout: 10000
+           address: redis://自己的ip:8008
+
+#        MasterSlaveServersConfig 主从限制远程配置不了
+#        clusterServersConfig:
+#          idleConnectionTimeout: 10000
+#          connectTimeout: 10000
+#          timeout: 3000
+#          retryAttempts: 3
+#          retryInterval: 1500
+#          failedSlaveReconnectionInterval: 3000
+#          failedSlaveCheckInterval: 60000
+#          password: null
+#          subscriptionsPerConnection: 5
+#          clientName: null
+#          loadBalancer: !<org.redisson.connection.balancer.RoundRobinLoadBalancer> {}
+#          subscriptionConnectionMinimumIdleSize: 1
+#          subscriptionConnectionPoolSize: 50
+#          slaveConnectionMinimumIdleSize: 24
+#          slaveConnectionPoolSize: 64
+#          masterConnectionMinimumIdleSize: 24
+#          masterConnectionPoolSize: 64
+#          readMode: "SLAVE"
+#          subscriptionMode: "SLAVE"
+#          nodeAddresses:
+#          - "redis://127.0.0.1:7004"
+#          - "redis://127.0.0.1:7001"
+#          - "redis://127.0.0.1:7000"
+#          scanInterval: 1000
+#          pingConnectionInterval: 0
+#          keepAlive: false
+#          tcpNoDelay: false
+#        threads: 16
+#        nettyThreads: 32
+#        codec: !<org.redisson.codec.MarshallingCodec> {}
+#        transportMode: "NIO"
+
