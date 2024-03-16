@@ -1,0 +1,18 @@
+spring:
+  rabbitmq:
+    host: 192.168.200.128
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+    listener:
+      simple:
+        acknowledge-mode: manual # 消费者手动确认消息
+        retry:
+          enabled: true
+          multiplier: 2 # retry 2 次
+    publisher-confirm-type: correlated # 确认模式 confirm
+    publisher-returns: true # 回退模式
+
+
+author: Java4ye
