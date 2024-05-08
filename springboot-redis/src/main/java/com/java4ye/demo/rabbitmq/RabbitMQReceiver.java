@@ -69,9 +69,9 @@ public class RabbitMQReceiver {
 
         RLock rLock = redissonClient.getLock(lockKey);
 
-        try {
-            // 先获取锁，成功执行业务逻辑，不成功表示重复订单
-            if (rLock.tryLock()) {
+        // 先获取锁，成功执行业务逻辑，不成功表示重复订单
+        if (rLock.tryLock()) {
+            try {
 
                 QueryWrapper<TbVoucherOrder> query = Wrappers.query();
                 query.select("id")
@@ -126,18 +126,17 @@ public class RabbitMQReceiver {
                 }
 
 
-            } else {
-                log.warn("不允许重复下单,voucherOrder : {}", voucherOrder);
-                channel.basicNack(deliveryTag, false, false);
+            } catch (Exception e) {
+                // 得抛出异常，才能触发重试机制
+                throw new Exception(e);
+            } finally {
+                rLock.unlock();
             }
-
-
-        } catch (Exception e) {
-            // 得抛出异常，才能触发重试机制
-            throw new Exception(e);
-        } finally {
-            rLock.unlock();
+        } else {
+            log.warn("不允许重复下单,voucherOrder : {}", voucherOrder);
+            channel.basicNack(deliveryTag, false, false);
         }
+
 
     }
 
