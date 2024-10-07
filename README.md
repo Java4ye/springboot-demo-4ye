@@ -25,8 +25,10 @@
 **欢迎小伙伴们来一起交流~ 😄**
 
 **<br/>**
-
+> **@主页：https://github.com/Java4ye** 
+> 
 >  **@微信公众号： Java4ye**
+>
 >
 >  **@博客 [知乎] https://www.zhihu.com/people/java4ye-17**
 >
@@ -34,4 +36,4 @@
 
 **<br/>**
 
-**![wechat](http://cdn.jsdelivr.net/gh/Java4ye/picb/20201202082043.png)**
+**![wechat](https://raw.githubusercontent.com/Java4ye/Java4ye/main/subscribe.gif)**
